@@ -1,0 +1,1547 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Golos Text";
+  src: url("../../public/fonts/GolosText-Regular.eot");
+  src: url("../../public/fonts/GolosText-Regular.eot?#iefix") format("embedded-opentype"), url("../../public/fonts/GolosText-Regular.ttf") format("truetype"), url("../../public/fonts/GolosText-Regular.woff") format("woff"), url("../../public/fonts/GolosText-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  z-index: 1000;
+}
+.modal .modal__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.modal .modal__container .modal__head {
+  margin-top: 16px;
+  padding: 0 15px 0 15px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.modal .modal__container .modal__head .modal__title {
+  font-family: "Golos Text";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.6px;
+  text-align: left;
+  color: rgb(38, 43, 56);
+}
+.modal .modal__container .modal__head .modal__close {
+  width: 24px;
+  height: 24px;
+}
+.modal .modal__container .modal__currency {
+  margin-top: 16px;
+  padding: 16px 15px 0 15px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(228, 228, 228);
+}
+.modal .modal__container .modal__currency .modal__currency-link {
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  color: rgb(122, 127, 137);
+}
+.modal .modal__container .modal__currency .modal__currency-link span {
+  color: rgb(39, 42, 54);
+}
+.modal .modal__container .modal__currency .modal__currency-rate {
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  color: rgb(39, 42, 54);
+}
+.modal .modal__container .modal__link {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  margin-top: 16px;
+  padding: 16px 15px 0 15px;
+  border-top: 1px solid rgb(228, 228, 228);
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: rgb(39, 42, 54);
+}
+.modal .modal__container .modal__link.last {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgb(228, 228, 228);
+}
+.modal .modal__container .modal__link::after {
+  content: url("../../public/img/arrowRight.png");
+  display: flex;
+  margin-left: auto;
+}
+.modal .modal__container .modal__enter {
+  margin-top: 16px;
+  width: 92%;
+  height: 44px;
+  border: 1px solid rgb(62, 68, 84);
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  color: rgb(62, 68, 84);
+  text-transform: uppercase;
+}
+.modal .modal__container .modal__partner {
+  margin-top: 12px;
+  margin-bottom: 16px;
+  width: 92%;
+  height: 44px;
+  border: 1px solid rgb(62, 68, 84);
+  background-color: rgb(62, 68, 84);
+  cursor: pointer;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+
+.mob__menu {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  width: 100vw;
+  max-width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  box-shadow: 0px -16px 34px 0px rgba(0, 0, 0, 0.12);
+  z-index: 2000;
+}
+.mob__menu .mob__container {
+  padding: 16.5px 0;
+  width: 90.62%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mob__menu .mob__container .mob__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.mob__menu .mob__container .mob__item:focus > .mob__name {
+  color: rgb(38, 43, 56);
+  font-weight: 600;
+}
+.mob__menu .mob__container .mob__item .mob__img {
+  width: 24px;
+  height: 24px;
+}
+.mob__menu .mob__container .mob__item .mob__name {
+  margin-top: 4px;
+  font-family: "Golos Text";
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 13px;
+  text-align: center;
+  color: rgb(149, 155, 173);
+}
+
+.container {
+  display: block;
+  margin: auto;
+  max-width: 1920px;
+}
+.container .header {
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgb(228, 228, 228);
+}
+.container .header .header__container__tablet {
+  width: 91.6666666667%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.container .header .header__container__tablet .header__nav__tablet {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.container .header .header__container__tablet .header__nav__tablet .header__link__tablet {
+  text-transform: uppercase;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  margin-left: 30px;
+  transition: 0.5s;
+}
+.container .header .header__container__tablet .header__nav__tablet .header__link__tablet:nth-child(1) {
+  margin-left: 0;
+}
+.container .header .header__container__tablet .header__nav__tablet .header__link__tablet:hover {
+  color: rgb(92, 148, 255);
+}
+.container .header .header__container {
+  padding: 20px 0;
+  width: 91.6666666667%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .header .header__container .header__logo img {
+  width: 139.05px;
+  height: 42px;
+}
+.container .header .header__container .header__nav {
+  display: flex;
+  align-items: center;
+}
+.container .header .header__container .header__nav .header__link {
+  text-transform: uppercase;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  margin-left: 30px;
+  transition: 0.5s;
+}
+.container .header .header__container .header__nav .header__link:nth-child(1) {
+  margin-left: 0;
+}
+.container .header .header__container .header__nav .header__link:hover {
+  color: rgb(92, 148, 255);
+}
+.container .header .header__container .header__contact {
+  display: flex;
+  align-items: center;
+}
+.container .header .header__container .header__contact .header__phone {
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  transition: 0.5s;
+}
+.container .header .header__container .header__contact .header__phone:hover {
+  color: rgb(92, 148, 255);
+}
+.container .header .header__container .header__contact .header__search {
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+}
+.container .header .header__container .header__contact .header__search img {
+  width: 24px;
+  height: 24px;
+}
+.container .header .header__container .header__contact .header__log {
+  margin-left: 30px;
+  width: 147px;
+  height: 46px;
+  border: 1px solid rgb(38, 43, 56);
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  color: rgb(38, 43, 56);
+  text-transform: uppercase;
+}
+.container .header .header__container .header__contact .header__partner {
+  margin-left: 20px;
+  width: 195px;
+  height: 46px;
+  border: 1px solid rgb(62, 68, 84);
+  background-color: rgb(62, 68, 84);
+  cursor: pointer;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+}
+.container .header .header__container .header__contact .header__burger {
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+}
+.container .header .header__container .header__contact .header__burger img {
+  width: 24px;
+  height: 18px;
+}
+.container .main {
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container .main .catalog {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container .main .catalog .catalog__head {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .main .catalog .catalog__head .catalog__content {
+  width: 91.6666666667%;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+}
+.container .main .catalog .catalog__head .catalog__content .catalog__title {
+  font-family: "Golos Text";
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 35.2px;
+  text-align: left;
+  color: rgb(38, 43, 56);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1307px;
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .search {
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40.3%;
+  max-width: 527px;
+  height: 54px;
+  background-color: rgba(228, 228, 228, 0.2);
+  border: 1px solid rgb(228, 228, 228);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .search:hover {
+  border: 1px solid rgb(75, 148, 247);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .search .search__input {
+  width: 97%;
+  max-width: 377px;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: rgb(250, 250, 250);
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  color: rgb(0, 0, 0);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .search .search__input::-moz-placeholder {
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  color: rgb(122, 127, 137);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .search .search__input::placeholder {
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: left;
+  color: rgb(122, 127, 137);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .search .search__input:-webkit-autofill, .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input:-webkit-autofill:active, .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input:-webkit-autofill:hover, .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 30px rgb(250, 250, 250) inset !important;
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .search .search__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(250, 250, 250);
+  border: none;
+  cursor: pointer;
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .search .search__button img {
+  width: 24px;
+  height: 24px;
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options {
+  display: flex;
+  align-items: center;
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency {
+  padding-right: 30px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-link {
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  color: rgb(122, 127, 137);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-link span {
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  color: rgb(39, 42, 54);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-link::after {
+  position: relative;
+  top: 6px;
+  content: url(../../public/img/arrowDown.png);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-rate {
+  margin-top: 6px;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  color: rgb(39, 42, 54);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-rate strong {
+  font-family: "Golos Text";
+  font-size: 16px;
+  line-height: 16px;
+  text-align: left;
+  color: rgb(39, 42, 54);
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__cart {
+  padding-left: 30px;
+  border-left: 1px solid rgb(228, 228, 228);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__cart .header__cart-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__cart .header__cart-link .header__cart-pic {
+  margin-top: 6px;
+  width: 24px;
+  height: 24px;
+}
+.container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__cart .header__cart-link .header__cart-text {
+  margin-top: 4px;
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: center;
+  color: rgb(149, 155, 173);
+}
+.container .main .catalog .catalog__body {
+  border-top: 1px solid rgb(228, 228, 228);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .main .catalog .catalog__body .catalog__wrapper {
+  width: 91.6666666667%;
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__menu {
+  padding: 25px 0 354px 0;
+  width: 100%;
+  border-right: 1px solid rgb(228, 228, 228);
+  display: flex;
+  flex-direction: column;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob {
+  display: none;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__main__link a:nth-child(1) {
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: rgb(38, 43, 56);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__main__link a:nth-child(2) {
+  font-family: "Golos Text";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: rgb(149, 155, 173);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link {
+  max-height: 49px;
+  padding: 15px 0;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  text-align: left;
+  color: rgb(38, 43, 56);
+  transition: 0.5s;
+  border-right: 2px solid transparent;
+  transition: 0.5s;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link:nth-child(1) {
+  color: rgb(92, 148, 255);
+  border-right: 2px solid rgb(92, 148, 255);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link:hover {
+  color: rgb(92, 148, 255);
+  border-right: 2px solid rgb(92, 148, 255);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box {
+  padding: 20px 0 0 60px;
+  display: flex;
+  flex-direction: column;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch {
+  display: flex;
+  justify-content: end;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch-label {
+  font-family: "Golos Text";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: rgb(39, 42, 54);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch {
+  margin-left: 8px;
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(149, 155, 173, 0.4);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: rgb(255, 255, 255);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch input:checked + .slider {
+  background-color: rgb(92, 148, 255);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch input:checked + .slider:before {
+  transform: translateX(12px);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__banner {
+  margin-top: 20px;
+  max-width: 100%;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__banner .catalog__banner-img {
+  max-width: 100%;
+  content: url("../../public/img/mainBanner.png");
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 2fr);
+  gap: 30px 60px;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category {
+  display: flex;
+  flex-direction: column;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-title {
+  font-family: "Golos Text";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: left;
+  color: rgb(38, 43, 56);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-links a {
+  margin-top: 8px;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: rgb(39, 42, 54);
+  transition: 0.5s;
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-links a:hover {
+  color: rgb(92, 148, 255);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-links .more {
+  margin-top: 8px;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  color: rgb(92, 148, 255);
+}
+.container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-links .more::after {
+  position: relative;
+  left: 6px;
+  content: url(../../public/img/blueArrow.png);
+}
+.container .footer {
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(38, 43, 56);
+}
+.container .footer .footer__wrapper {
+  width: 91.6666666667%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.container .footer .footer__wrapper .footer__category {
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+}
+.container .footer .footer__wrapper .footer__category .footer__category__box {
+  display: flex;
+  flex-direction: column;
+}
+.container .footer .footer__wrapper .footer__category .footer__category__box .footer__enter {
+  padding-top: 15px;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.2px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  text-transform: uppercase;
+  color: rgb(149, 155, 173);
+  transition: 0.5s;
+}
+.container .footer .footer__wrapper .footer__category .footer__category__box .footer__enter:hover {
+  color: rgb(92, 148, 255);
+}
+.container .footer .footer__wrapper .footer__category .footer__category__box .footer__enter:nth-child(1) {
+  padding-top: 30px;
+}
+.container .footer .footer__wrapper .footer__category:nth-child(3) {
+  border-left: 2px solid rgb(255, 255, 255);
+}
+.container .footer .footer__wrapper .footer__category:nth-child(3) .footer__category__top {
+  border: none;
+}
+.container .footer .footer__wrapper .footer__category:nth-child(3) .footer__category__bottom {
+  border: none;
+}
+.container .footer .footer__wrapper .footer__category .footer__mail {
+  padding: 784px 0 30px 0;
+  font-family: "Golos Text";
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 95px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  color: rgb(255, 255, 255);
+}
+.container .footer .footer__wrapper .footer__category .footer__phone {
+  white-space: nowrap;
+  padding: 255px 0 30px 30px;
+  font-family: "Golos Text";
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 95px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  color: rgb(255, 255, 255);
+}
+.container .footer .footer__wrapper .footer__category .footer__category__top {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  border-left: 2px solid rgb(255, 255, 255);
+}
+.container .footer .footer__wrapper .footer__category .footer__category__top .footer__link-white {
+  padding: 15px 0 0 30px;
+  max-width: 420px;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.2px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  transition: 0.5s;
+}
+.container .footer .footer__wrapper .footer__category .footer__category__top .footer__link-white:hover {
+  color: rgb(92, 148, 255);
+}
+.container .footer .footer__wrapper .footer__category .footer__category__top .footer__link-white:nth-child(1) {
+  padding-top: 30px;
+}
+.container .footer .footer__wrapper .footer__category .footer__category__bottom {
+  margin-top: 120px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid rgb(255, 255, 255);
+}
+.container .footer .footer__wrapper .footer__category .footer__category__bottom .footer__link-gray {
+  padding: 15px 0 0 30px;
+  max-width: 420px;
+  font-family: "Golos Text";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.2px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  text-transform: uppercase;
+  color: rgb(149, 155, 173);
+  transition: 0.5s;
+}
+.container .footer .footer__wrapper .footer__category .footer__category__bottom .footer__link-gray:hover {
+  color: rgb(92, 148, 255);
+}
+.container .footer .footer__wrapper .footer__category .footer__category__bottom .footer__link-gray:nth-child(1) {
+  padding-top: 0;
+}
+.container .footer .footer__contacts {
+  width: 91.6666666667%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.container .footer .footer__contacts a {
+  padding: 255px 0 30px 0;
+  font-family: "Golos Text";
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 95px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  color: rgb(255, 255, 255);
+}
+.container .footer .footer__contacts .footer__phone {
+  border-left: 2px solid rgb(255, 255, 255);
+  padding-left: 30px;
+}
+
+@media (max-width: 1600px) {
+  .container .header .header__container {
+    width: 95%;
+  }
+  .container .main .catalog .catalog__head .catalog__content {
+    width: 95%;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .search {
+    margin-left: 15%;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper {
+    width: 95%;
+  }
+  .container .footer .footer__wrapper {
+    width: 95%;
+  }
+  .container .footer .footer__wrapper .footer__category .footer__phone {
+    font-size: 80px;
+  }
+  .container .footer .footer__wrapper .footer__category .footer__email {
+    font-size: 80px;
+  }
+}
+@media (max-width: 1520px) {
+  .container {
+    display: block;
+    margin: auto;
+    max-width: 1920px;
+  }
+  .container .header {
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(228, 228, 228);
+  }
+  .container .header .header__container__tablet {
+    background-color: rgb(234, 234, 234);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .header .header__container__tablet .header__nav__tablet {
+    width: 92.19%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  .container .header .header__container__tablet .header__nav__tablet .header__link__tablet {
+    text-transform: uppercase;
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+  }
+  .container .header .header__container__tablet .header__nav__tablet .header__link__tablet:hover {
+    color: rgb(92, 148, 255);
+  }
+  .container .header .header__container {
+    padding: 20px 0;
+    width: 92.19%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .container .header .header__container .header__logo img {
+    width: 139.05px;
+    height: 42px;
+  }
+  .container .header .header__container .header__nav {
+    display: none;
+    align-items: center;
+  }
+  .container .header .header__container .header__nav .header__link {
+    text-transform: uppercase;
+    font-family: "Golos Text";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    margin-left: 30px;
+    transition: 0.5s;
+  }
+  .container .header .header__container .header__nav .header__link:nth-child(1) {
+    margin-left: 0;
+  }
+  .container .header .header__container .header__nav .header__link:hover {
+    color: rgb(92, 148, 255);
+  }
+  .container .header .header__container .header__contact {
+    display: flex;
+    align-items: center;
+  }
+  .container .header .header__container .header__contact .header__phone {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+  }
+  .container .header .header__container .header__contact .header__search {
+    margin-left: 20px;
+  }
+  .container .header .header__container .header__contact .header__log {
+    margin-left: 20px;
+    width: 133px;
+    height: 44px;
+    border: 1px solid rgb(38, 43, 56);
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-family: "Golos Text";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+    color: rgb(38, 43, 56);
+    text-transform: uppercase;
+  }
+  .container .header .header__container .header__contact .header__partner {
+    margin-left: 10px;
+    width: 175px;
+    height: 44px;
+    border: 1px solid rgb(62, 68, 84);
+    background-color: rgb(62, 68, 84);
+    cursor: pointer;
+    font-family: "Golos Text";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+  }
+  .container .header .header__container .header__contact .header__burger {
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+  }
+  .container .header .header__container .header__contact .header__burger img {
+    width: 24px;
+    height: 18px;
+  }
+  .container .main {
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container .main .catalog {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__head {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .main .catalog .catalog__head .catalog__content {
+    width: 92.19%;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+  }
+  .container .main .catalog .catalog__head .catalog__content .catalog__title {
+    font-family: "Golos Text";
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 35.2px;
+    text-align: left;
+    color: rgb(38, 43, 56);
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    max-width: 714px;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .search {
+    margin-left: 0;
+    margin-right: 20px;
+    padding: 0 23px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 459px;
+    max-width: 459px;
+    height: 54px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(228, 228, 228);
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input {
+    width: 97%;
+    max-width: 377px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input::-moz-placeholder {
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: rgb(122, 127, 137);
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input::placeholder {
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: rgb(122, 127, 137);
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input:-webkit-autofill, .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input:-webkit-autofill:active, .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input:-webkit-autofill:hover, .container .main .catalog .catalog__head .catalog__content .wrap .search .search__input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .search .search__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(250, 250, 250);
+    border: none;
+    cursor: pointer;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .search .search__button img {
+    width: 24px;
+    height: 24px;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options {
+    display: flex;
+    align-items: center;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency {
+    padding-right: 20px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-link {
+    font-family: "Golos Text";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: rgb(122, 127, 137);
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-link span {
+    font-family: "Golos Text";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: rgb(39, 42, 54);
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-link::after {
+    position: relative;
+    top: 6px;
+    content: url(../../public/img/arrowDown.png);
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-rate {
+    margin-top: 6px;
+    font-family: "Golos Text";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    color: rgb(39, 42, 54);
+    white-space: nowrap;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__currency .header__currency-rate strong {
+    font-family: "Golos Text";
+    font-size: 16px;
+    line-height: 16px;
+    text-align: left;
+    color: rgb(39, 42, 54);
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__cart {
+    padding-left: 20px;
+    border-left: 1px solid rgb(228, 228, 228);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__cart .header__cart-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__cart .header__cart-link .header__cart-pic {
+    margin-top: 6px;
+    width: 24px;
+    height: 24px;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options .header__cart .header__cart-link .header__cart-text {
+    margin-top: 4px;
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: center;
+    color: rgb(149, 155, 173);
+  }
+  .container .main .catalog .catalog__body {
+    border-top: 1px solid rgb(228, 228, 228);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper {
+    width: 92.19%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu {
+    padding: 20px 0 0 0;
+    width: 100%;
+    border-right: 1px solid rgb(228, 228, 228);
+    display: flex;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__main__link a:nth-child(1) {
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgb(38, 43, 56);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__main__link a:nth-child(2) {
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgb(149, 155, 173);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link {
+    max-height: 49px;
+    padding: 15px 0;
+    font-family: "Golos Text";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-align: left;
+    color: rgb(38, 43, 56);
+    transition: 0.5s;
+    border-right: 2px solid transparent;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link:nth-child(1) {
+    color: rgb(92, 148, 255);
+    border-right: 2px solid rgb(92, 148, 255);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link:hover {
+    color: rgb(92, 148, 255);
+    border-right: 2px solid rgb(92, 148, 255);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box {
+    padding: 20px 0 150px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch {
+    display: flex;
+    justify-content: end;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch-label {
+    font-family: "Golos Text";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgb(39, 42, 54);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch {
+    margin-left: 8px;
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 20px;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(149, 155, 173, 0.4);
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch .slider::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch input:checked + .slider {
+    background-color: rgb(92, 148, 255);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__switch .switcher .switch input:checked + .slider:before {
+    transform: translateX(12px);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__banner {
+    margin-top: 20px;
+    max-width: 100%;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 2fr);
+    gap: 30px 20px;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category {
+    display: flex;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-title {
+    font-family: "Golos Text";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+    color: rgb(38, 43, 56);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-links a {
+    margin-top: 8px;
+    font-family: "Golos Text";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgb(39, 42, 54);
+    transition: 0.5s;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__categories .catalog__category .catalog__category-links a:hover {
+    color: rgb(92, 148, 255);
+  }
+  .container .footer {
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(38, 43, 56);
+  }
+  .container .footer .footer__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .container .footer .footer__wrapper .footer__category .footer__mail {
+    padding-top: 659px;
+  }
+  .container .footer .footer__wrapper .footer__category .footer__phone {
+    padding: 239px 0 100px 0;
+    padding-top: 239px;
+  }
+  .container .footer .footer__wrapper .footer__category:nth-child(3) {
+    border-left: none;
+    border-top: 2px solid rgb(255, 255, 255);
+    min-width: 100%;
+  }
+  .container .footer .footer__wrapper .footer__category:nth-child(4) {
+    border-top: 2px solid rgb(255, 255, 255);
+    min-width: 100%;
+  }
+}
+@media (max-width: 920px) {
+  .container .main .catalog .catalog__head .catalog__content .wrap .search {
+    margin: 0;
+  }
+  .container .main .catalog .catalog__head .catalog__content .wrap .header__options {
+    display: none;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box .catalog__banner {
+    content: url("../../public/img/bannerTablet.png");
+  }
+}
+@media (max-width: 760px) {
+  .mob__menu {
+    display: flex;
+  }
+  .container {
+    display: block;
+    margin: auto;
+    max-width: 1920px;
+  }
+  .container .header {
+    display: none;
+  }
+  .container .main {
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container .main .catalog {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__head {
+    display: none;
+  }
+  .container .main .catalog .catalog__body {
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu {
+    padding: 16px 0 75px 0;
+    width: 100%;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .catalog__mob-img {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 15px;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search {
+    margin-top: 15px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 48px;
+    background-color: rgba(228, 228, 228, 0.2);
+    border: 1px solid rgb(228, 228, 228);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search:hover {
+    border: 1px solid rgb(75, 148, 247);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search .search__input {
+    width: 97%;
+    max-width: 377px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: rgb(250, 250, 250);
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search .search__input::-moz-placeholder {
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: rgb(122, 127, 137);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search .search__input::placeholder {
+    font-family: "Golos Text";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: rgb(122, 127, 137);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search .search__input:-webkit-autofill, .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search .search__input:-webkit-autofill:active, .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search .search__input:-webkit-autofill:hover, .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search .search__input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 30px rgb(250, 250, 250) inset !important;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search .search__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(250, 250, 250);
+    border: none;
+    cursor: pointer;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .form__container .catalog__mob__search .search__button img {
+    width: 24px;
+    height: 24px;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__mob .catalog__mob__title {
+    padding: 15px 0 0 15px;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 16px;
+    border-top: 1px solid rgb(228, 228, 228);
+    font-family: "Golos Text";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    color: rgb(38, 43, 56);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__main__link {
+    display: none;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links {
+    width: 100%;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link {
+    display: flex;
+    padding: 17px 15px;
+    font-family: "Golos Text";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-align: left;
+    color: rgb(38, 43, 56);
+    transition: 0.5s;
+    border: none;
+    border-top: 1px solid rgb(228, 228, 228);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link:nth-child(1) {
+    color: rgb(38, 43, 56);
+    border: none;
+    border-top: 1px solid rgb(228, 228, 228);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link:last-child {
+    border-bottom: 1px solid rgb(228, 228, 228);
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link:hover {
+    color: rgb(92, 148, 255);
+    border-right: none;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__menu .catalog__links .catalog__link::after {
+    content: url("../../public/img/arrowRight.png");
+    display: flex;
+    margin-left: auto;
+  }
+  .container .main .catalog .catalog__body .catalog__wrapper .catalog__box {
+    display: none;
+  }
+  .container .footer {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
